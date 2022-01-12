@@ -1,14 +1,22 @@
 <h1>本日の日報登録</h1>
 <div>
-  <%= form_tag("/posts/save") do %>
-    <textarea name="content"></textarea>
-    <input type="submit" value="投稿">
+  <% if session[:user_id].to_i == @user.id %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <%= form_tag("/posts/save") do %>
+      <textarea name="content"><%= @post.content %></textarea>
+      <input type="submit" value="投稿">
+    <% end %>
   <% end %>
 </div>
 <section>
   <ul>
-    <% @user.posts.each do |post| %>
-    <li><%= post.content %></li>
+    <% @user.posts_order_desc.each do |post| %>
+      <li>
+        <%= post.content %>
+        <%= post.created_at %>
+      </li>
     <% end %>
   </ul>
 </section>

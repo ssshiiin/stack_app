@@ -1,0 +1,10 @@
+<h1>ユーザーを選択してください</h1>
+<p>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= link_to user.name, "/login/#{user.id}", {method: "post"} %>
+      </li>
+    <% end %>
+  </ul>
+</p>

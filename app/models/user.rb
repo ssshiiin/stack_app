@@ -4,4 +4,8 @@ class User < ApplicationRecord
   def posts
     return Post.where(user_id: self.id)
   end
+
+  def posts_order_desc
+    return Post.where(user_id: self.id).order(created_at: :desc)
+  end
 end

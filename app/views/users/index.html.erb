@@ -1,8 +1,8 @@
-<h1>ユーザーを選択してください</h1>
+<h1>日報一覧</h1>
 <p>
   <ul>
     <% @users.each do |user| %>
-    <li><a href="<%= "/#{user.name}"%>"><%= user.name %></a></li>
+    <li><a href="<%= "/users/#{user.id}"%>"><%= user.name %></a></li>
     <% end %>
   </ul>
 </p>
