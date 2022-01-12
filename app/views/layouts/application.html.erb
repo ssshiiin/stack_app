@@ -11,10 +11,17 @@
 
   <body>
     <header>
+      <div class="header">
+        <%= link_to("積み上げ", "/users/index", {class: "header__title"}) %>
+      </div>
       <% if flash[:notice] %>
-        <h2><%= flash[:notice] %></h2>
+        <div class="header_flash">
+          <h2 class="header_flash__title"><%= flash[:notice] %></h2>
+        </div>
       <% end %>
     </header>
-    <%= yield %>
+    <div class="main">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,3 +1,36 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./variables";
+
+.textarea {
+  width: 328px;
+  height: 10em;
+  line-height: 1.5em;
+  resize: none;
+  border: 1px solid $border-color;
+}
+
+.button {
+  color: white;
+  background-color: $header;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 10px;
+  &:hover {
+    background-color: $hover-main;
+  }
+}
+
+.error {
+  color: $red;
+}
+
+.posts_index {
+  padding: 8px;
+  &__created_at {
+    font-size: 14px;
+    color: $sub-header;
+  }
+}

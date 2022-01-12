@@ -1,3 +1,55 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./variables";
+
+.main {
+  background-color: $back-color;
+  height: 100%;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: $header;
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 80px;
+    color: $white;
+    padding: 0 32px;
+  }
+  &_flash {
+    @extend .header;
+    background-color: $orange;
+    height: 60px;
+    &__title {
+      line-height: 60px;
+      @extend .header__title;
+    }
+  }
+}
+
+.wrapper {
+  background-color: $white;
+  box-shadow: $box-shadow;
+  width: 360px;
+  margin: 0 auto;
+  border-radius: 6px;
+  padding: 16px;
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
+
+.list {
+  &__item {
+    margin: 4px 8px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
