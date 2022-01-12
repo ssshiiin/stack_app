@@ -8,4 +8,8 @@ class User < ApplicationRecord
   def posts_order_desc
     return Post.where(user_id: self.id).order(created_at: :desc)
   end
+
+  def posts_count
+    return Post.where(user_id: self.id).count
+  end
 end
