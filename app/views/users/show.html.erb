@@ -21,11 +21,13 @@
           <div>
             <%= raw(linebreak_to_br(post.content)) %>
           </div>
-          <div class="spacer"></div>
-          <div class="direction_end">
-            <%= link_to "編集", "/posts/#{post.id}/edit", {class: "button_small"} %>
-            <%= link_to "削除", "/posts/#{post.id}", {method: "delete", class: "button_small"} %>
-          </div>
+          <% if session[:user_id].to_i == @user.id %>
+            <div class="spacer"></div>
+            <div class="direction_end">
+              <%= link_to "編集", "/posts/#{post.id}/edit", {class: "button_small"} %>
+              <%= link_to "削除", "/posts/#{post.id}", {method: "delete", class: "button_small"} %>
+            </div>
+          <% end %>
         </li>
         <div class="line"></div>
       <% end %>
