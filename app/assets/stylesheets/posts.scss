@@ -18,6 +18,7 @@
   border: none;
   border-radius: 6px;
   padding: 3px 10px;
+  display: inline-block;
   &:hover {
     background-color: $hover-main;
   }
@@ -39,4 +40,19 @@
     font-size: 14px;
     color: $sub-header;
   }
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  border-top: 1px dashed $border-color;
+}
+
+.spacer {
+  width: 4px;
+  height: 4px;
+}
+
+.direction_end {
+  text-align: end;
 }

@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <h1 class="wrapper__title">日報編集</h1>
+  <% if session[:user_id].to_i == @post.user_id %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div class="error"><%= message %></div>
+    <% end %>
+    <%= form_tag("/posts/#{@post.id}/edit", {method: "patch"}) do %>
+      <textarea class="textarea" name="content"><%= @post.content %></textarea>
+      <input class="button" type="submit" value="投稿">
+    <% end %>
+  <% else %>
+      <div class="error">権限がありません。</div>
+  <% end %>
+</div>
+
