@@ -1,0 +1,14 @@
+<h1>本日の日報登録</h1>
+<div>
+  <%= form_tag("/posts/save") do %>
+    <textarea name="content"></textarea>
+    <input type="submit" value="投稿">
+  <% end %>
+</div>
+<section>
+  <ul>
+    <% @user.posts.each do |post| %>
+    <li><%= post.content %></li>
+    <% end %>
+  </ul>
+</section>
