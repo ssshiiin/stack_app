@@ -17,6 +17,7 @@
           <span class="posts_index__created_at">
             （<%= l post.created_at %>）
           </span>
+          <%= link_to "削除", "/posts/#{post.id}", {method: "delete", class: "button_small"} %>
         </li>
       <% end %>
     </ul>

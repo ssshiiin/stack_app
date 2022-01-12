@@ -21,6 +21,12 @@
   &:hover {
     background-color: $hover-main;
   }
+
+  &_small {
+    @extend .button;
+    padding: 3px 7px;
+    font-size: 10px;
+  }
 }
 
 .error {
