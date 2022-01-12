@@ -15,6 +15,22 @@ class PostsController < ApplicationController
       render("users/show")
     end
   end
+
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+  
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.content = params[:content]
+    if @post.save
+      flash[:notice] = "編集しました"
+      redirect_to("/users/#{session[:user_id]}")
+    else
+      flash[:notice] = "編集に失敗しました"
+      render("posts/edit")
+    end
+  end
   
   def destroy
     @post = Post.find_by(id: params[:id])

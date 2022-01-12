@@ -6,19 +6,28 @@
     <% end %>
     <%= form_tag("/users/#{session[:user_id]}") do %>
       <textarea class="textarea" name="content"><%= @post.content %></textarea>
-      <input class="button" type="submit" value="投稿">
+      <div class="direction_end">
+        <input class="button" type="submit" value="投稿">
+      </div>
     <% end %>
   <% end %>
   <section class="posts_index">
     <ul>
       <% @user.posts_order_desc.each do |post| %>
         <li class="list__item">
-          <%= post.content %>
-          <span class="posts_index__created_at">
-            （<%= l post.created_at %>）
-          </span>
-          <%= link_to "削除", "/posts/#{post.id}", {method: "delete", class: "button_small"} %>
+          <div class="posts_index__created_at">
+              (<%= l post.created_at %>)
+          </div>
+          <div>
+            <%= raw(linebreak_to_br(post.content)) %>
+          </div>
+          <div class="spacer"></div>
+          <div class="direction_end">
+            <%= link_to "編集", "/posts/#{post.id}/edit", {class: "button_small"} %>
+            <%= link_to "削除", "/posts/#{post.id}", {method: "delete", class: "button_small"} %>
+          </div>
         </li>
+        <div class="line"></div>
       <% end %>
     </ul>
   </section>
