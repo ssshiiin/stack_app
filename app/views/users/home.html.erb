@@ -1,10 +1,10 @@
-<h1>ユーザーを選択してください</h1>
-<p>
+<div class="wrapper">
+  <h1 class="wrapper__title">ユーザーを選択</h1>
   <ul>
     <% @users.each do |user| %>
-      <li>
+      <li class="list__item">
         <%= link_to user.name, "/login/#{user.id}", {method: "post"} %>
       </li>
     <% end %>
   </ul>
-</p>
+</div>
